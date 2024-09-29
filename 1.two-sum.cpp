@@ -34,13 +34,15 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+    vector<int> twoSum(vector<int>& nums, int target) 
+    {
         unordered_map<int, int> visited;
-        for (int i = 0; i < nums.size(); i++)
-        {
+        for (int i = 0; i < nums.size(); i++) {
             auto iter = visited.find(target - nums[i]);
-            if (iter != visited.end()) return {iter->second, i};
-            else visited.insert(make_pair(nums[i], i));
+            if (iter != visited.end()) {
+                return {iter->second, i};
+            }
+            visited.insert(make_pair(nums[i], i));
         }
         return {};
     }
